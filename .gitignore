@@ -1,0 +1,76 @@
+# Dependências
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build
+dist/
+build/
+*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+
+# Testes
+coverage/
+*.lcov
+.nyc_output/
+
+# Sistema Operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporários
+*.tmp
+*.temp
+.cache/
+.parcel-cache/
+
+# Vite
+dist-ssr/
+*.tsbuildinfo
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Opcional: descomentar se usar algum desses
+# .vercel
+# .netlify
+# .firebase
+# .turbo
+
+# Backup
+*.bak
+*.backup
+*~
+
+# Arquivos de lock (opcional - descomentar se preferir)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
