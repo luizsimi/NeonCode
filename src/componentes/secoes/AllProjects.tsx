@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink, Github, Calendar, Users, Code, Sparkles } from
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { ImageWithFallback } from '../comum/ImageWithFallback';
+import { SEO } from '../comum/SEO';
 import { projects as baseProjects, DetailedProject } from '../../data/projectsData';
 
 // Estender os projetos base com informações detalhadas
@@ -22,7 +23,6 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
         'Integração direta com WhatsApp para pedidos',
         'Design responsivo para mobile e desktop',
         'Interface em português e japonês',
-        'Modo escuro/claro',
       ],
       challenges: 'Criar uma interface que fosse fácil de usar tanto para clientes quanto para o restaurante atualizar o cardápio.',
       solution: 'Desenvolvemos uma solução com Figma para prototipagem rápida e validação com o cliente, seguida de implementação com HTML/CSS/JS puro para máxima compatibilidade.',
@@ -35,10 +35,10 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
     },
     2: {
       longDescription: 'Plataforma completa de mentoria individual para programadores, com sistema de agendamento de videochamadas, perfis de mentores, avaliações e comunidade colaborativa. Inclui dashboard para mentores e alunos.',
-      date: 'Set 2024',
+      date: 'Ago 2024',
       client: 'CodeMentor Platform',
     team: '4 desenvolvedores',
-    duration: '4 meses',
+    duration: '5 meses',
     features: [
         'Sistema de autenticação e perfis de usuário',
         'Agendamento de sessões de mentoria',
@@ -50,17 +50,17 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
       challenges: 'Criar um sistema de matching entre mentores e alunos que considerasse disponibilidade, áreas de expertise e níveis de experiência.',
       solution: 'Implementamos um algoritmo de recomendação baseado em perfis e preferências, além de um sistema de agendamento flexível com sincronização de calendários.',
     results: [
-        '500+ mentores cadastrados',
-        '2000+ sessões realizadas',
+        '10+ mentores cadastrados',
+        '20 sessões realizadas',
         'Satisfação média de 4.7/5',
         'Taxa de match bem-sucedido de 85%',
       ],
     },
     3: {
       longDescription: 'Aplicativo mobile completo para gestão de serviços automotivos, permitindo controle de orçamentos, cadastro de clientes, histórico de serviços e acompanhamento de status em tempo real.',
-      date: 'Ago 2024',
-      client: 'AutoService Group',
-    team: '3 desenvolvedores',
+      date: 'Ago 2025',
+      client: 'RBS Car',
+    team: '4 desenvolvedores',
     duration: '5 meses',
     features: [
         'Cadastro completo de clientes e veículos',
@@ -73,7 +73,7 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
       challenges: 'Sincronizar dados entre múltiplas oficinas e permitir acesso offline para mecânicos em campo.',
       solution: 'Desenvolvemos uma arquitetura com sincronização incremental, cache local e resolução de conflitos automática usando Prisma e Node.js.',
     results: [
-        'Adotado por 15 oficinas',
+        'Adotado por 3 oficinas',
         'Redução de 40% em tempo de atendimento',
         'Aumento de 60% em aprovações de orçamento',
         'Taxa de sincronização de 99.8%',
@@ -81,10 +81,10 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
     },
     4: {
       longDescription: 'Plataforma completa de delivery fitness com catálogo de produtos, carrinho de compras, sistema de pagamento integrado com Mercado Pago e notificações via WhatsApp API.',
-      date: 'Jul 2024',
+      date: 'Fev 2025',
       client: 'LeveFit Nutrition',
-      team: '3 desenvolvedores',
-      duration: '3 meses',
+      team: '5 desenvolvedores',
+      duration: '4 meses',
     features: [
         'Catálogo de produtos com filtros avançados',
         'Carrinho de compras inteligente',
@@ -96,7 +96,7 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
       challenges: 'Integrar múltiplos sistemas de pagamento e garantir entrega segura de notificações em escala.',
       solution: 'Implementamos uma arquitetura baseada em filas com Node.js e TypeScript, garantindo processamento assíncrono e retry automático.',
     results: [
-        '1000+ pedidos no primeiro mês',
+        '24+ pedidos no primeiro mês',
         'Taxa de conversão de 12%',
         'Zero falhas em pagamentos',
         'Tempo médio de entrega de 45min',
@@ -104,7 +104,7 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
     },
     5: {
       longDescription: 'Plataforma de e-commerce moderna para produtos variados, com design responsivo, carrinho de compras, sistema de pagamento e painel administrativo. Desenvolvido com foco em UX e performance.',
-      date: 'Jun 2024',
+      date: 'Ago 2023',
       client: 'Loja Aki Digital',
     team: '2 desenvolvedores',
       duration: '3 meses',
@@ -119,7 +119,7 @@ const allProjects: DetailedProject[] = baseProjects.map((project) => {
       challenges: 'Criar uma experiência de compra fluida e intuitiva que funcionasse bem em todos os dispositivos.',
       solution: 'Utilizamos Bootstrap para garantir responsividade, protótipos em Figma para validação de UX e JavaScript puro para performance otimizada.',
     results: [
-        'Aumento de 50% em vendas online',
+        'Aumento em vendas online',
         'Taxa de abandono de carrinho reduzida em 30%',
         'Tempo de carregamento < 2s',
         'Acessível em 98% dos dispositivos',
@@ -162,7 +162,19 @@ interface AllProjectsProps {
 
 export function AllProjects({ onBack }: AllProjectsProps) {
   return (
-    <div className="min-h-screen bg-black">
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -100 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
+      className="min-h-screen bg-black"
+    >
+      <SEO
+        title="Todos os Projetos - NeonCode Portfólio"
+        description="Explore todos os meus projetos de desenvolvimento web e mobile. Soluções inovadoras em React, Flutter, Django e muito mais."
+        keywords={['portfólio', 'projetos', 'desenvolvedor', 'react', 'flutter', 'django', 'web', 'mobile']}
+      />
+      
       {/* Header with Back Button */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -452,7 +464,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
           </motion.div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }
 

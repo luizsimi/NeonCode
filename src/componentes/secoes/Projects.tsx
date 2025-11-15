@@ -5,6 +5,7 @@ import { Card } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { ImageWithFallback } from '../comum/ImageWithFallback';
+import { SEO } from '../comum/SEO';
 import { projects, categories } from '../../data/projectsData';
 
 interface ProjectsProps {
@@ -22,6 +23,12 @@ export function Projects({ onViewAll }: ProjectsProps) {
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden">
+      <SEO
+        title="Projetos - NeonCode Portfólio"
+        description="Confira meus projetos de desenvolvimento web e mobile. Soluções criativas em React, Flutter, Django, Node.js e mais."
+        keywords={['projetos', 'portfólio', 'react', 'flutter', 'django', 'nodejs', 'web development', 'mobile app']}
+      />
+      
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       

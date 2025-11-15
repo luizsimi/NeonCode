@@ -9,6 +9,10 @@ export interface Project {
   category: string;
   link?: string;
   github?: string;
+  seo?: {
+    keywords?: string[];
+    ogImage?: string;
+  };
 }
 
 // Interface estendida para projetos detalhados (usado em AllProjects)
@@ -35,6 +39,10 @@ export const projects: Project[] = [
     category: 'Web App',
     link: '#',
     github: '#',
+    seo: {
+      keywords: ['cardápio digital', 'restaurante japonês', 'pedidos whatsapp', 'menu online', 'sushi delivery'],
+      ogImage: '/projetos/cardapio_japones.png',
+    },
   },
   {
     id: 2,
@@ -46,6 +54,10 @@ export const projects: Project[] = [
     category: 'Dashboard',
     link: '#',
     github: '#',
+    seo: {
+      keywords: ['mentoria programação', 'aprender programar', 'curso online', 'videochamada', 'code mentor', 'django', 'python'],
+      ogImage: '/projetos/Plataforma dashboard.png',
+    },
   },
   {
     id: 3,
@@ -56,6 +68,10 @@ export const projects: Project[] = [
     category: 'Mobile',
     link: '#',
     github: '#',
+    seo: {
+      keywords: ['sistema automotivo', 'gestão oficina', 'app mecânica', 'orçamento auto', 'flutter', 'mobile'],
+      ogImage: '/projetos/auto.png',
+    },
   },
   {
     id: 4,
@@ -66,6 +82,10 @@ export const projects: Project[] = [
     category: 'Web App',
     link: '#',
     github: '#',
+    seo: {
+      keywords: ['delivery fitness', 'comida saudável', 'ecommerce', 'mercado pago', 'whatsapp api', 'nodejs'],
+      ogImage: '/projetos/levifit.png',
+    },
   },
   {
     id: 5,
@@ -76,6 +96,10 @@ export const projects: Project[] = [
     category: 'Website',
     link: '#',
     github: '#',
+    seo: {
+      keywords: ['ecommerce', 'loja online', 'carrinho de compras', 'bootstrap', 'web design', 'figma'],
+      ogImage: '/projetos/aki.png',
+    },
   },
   {
     id: 6,
@@ -85,6 +109,10 @@ export const projects: Project[] = [
     tags: ['React.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Node.js', 'PostgreSQL'],
     category: 'Web App',
     link: '#',
+    seo: {
+      keywords: ['autoatendimento', 'restaurante', 'totem', 'nextjs', 'react', 'postgresql', 'pedidos online'],
+      ogImage: '/projetos/FSW.png',
+    },
   },
 ];
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
 import { Header } from './componentes/layout/Header';
 import { Footer } from './componentes/layout/Footer';
 import { Hero } from './componentes/secoes/Hero';
@@ -12,27 +13,27 @@ import { CustomCursor } from './componentes/comum/CustomCursor';
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'all-projects'>('home');
 
-  if (currentPage === 'all-projects') {
-    return (
-      <div className="min-h-screen bg-black cursor-none md:cursor-none">
-        <CustomCursor />
-        <AllProjects onBack={() => setCurrentPage('home')} />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-black cursor-none md:cursor-none">
       <CustomCursor />
-      <Header />
-      <main>
-        <Hero />
-        <Projects onViewAll={() => setCurrentPage('all-projects')} />
-        <Skills />
-        <Experience />
-        <Contact />
-      </main>
-      <Footer />
+      
+      <AnimatePresence mode="wait">
+        {currentPage === 'all-projects' ? (
+          <AllProjects key="all-projects" onBack={() => setCurrentPage('home')} />
+        ) : (
+          <div key="home">
+            <Header />
+            <main>
+              <Hero />
+              <Projects onViewAll={() => setCurrentPage('all-projects')} />
+              <Skills />
+              <Experience />
+              <Contact />
+            </main>
+            <Footer />
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
