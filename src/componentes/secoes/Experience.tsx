@@ -6,36 +6,36 @@ const experiences = [
   {
     type: 'work',
     icon: Briefcase,
-    title: 'Senior Full Stack Developer',
-    company: 'Tech Innovation Co.',
-    period: '2022 - Presente',
+    title: 'Desenvolvedor Web Php Jr',
+    company: 'Sisquali Soluções em Sistemas',
+    period: 'Out 2025 - Presente',
     description:
-      'Liderando desenvolvimento de aplicações web escaláveis usando React, Node.js e arquitetura de microserviços. Mentoria de equipe júnior e implementação de melhores práticas de código.',
+      'Suporte e refatoração de codigo para melhorias de performace do sistema. Desenvolvimento e pratica de UX/UI para melhorias de interface do usuario.',
     achievements: [
       'Aumentou performance em 40%',
-      'Implementou CI/CD completo',
-      'Liderou equipe de 5 devs',
-      'Arquitetura Microserviços',
+      'Melhoria de interface do usuario',
+      'Trabalho em equipe de 5 devs',
+      'Manipulação de dados com PHP e MySQL	',
     ],
     stats: [
       { icon: TrendingUp, value: '40%', label: 'Melhor Performance' },
-      { icon: Users, value: '5+', label: 'Devs Mentorados' },
-      { icon: Zap, value: '20+', label: 'Projetos' },
+      { icon: Users, value: '5+', label: 'Equipes de Desenvolvimento' },
+      { icon: Zap, value: '5+', label: 'Projetos' },
     ],
   },
   {
     type: 'work',
     icon: Briefcase,
-    title: 'Full Stack Developer',
-    company: 'Digital Solutions Ltd.',
-    period: '2020 - 2022',
+    title: 'Estagiário em Gestão de Projetos',
+    company: 'BC2 Construtora S.A.',
+    period: 'Mai 2025 - Out 2025',
     description:
-      'Desenvolvimento de soluções web complexas para clientes corporativos. Especialização em React, TypeScript, AWS e integração de APIs terceiras.',
+      'Desenvolvimento de projetos para area de infraestrutura de construção civil. Gestao de projetos de forma agil e eficiente. ',
     achievements: [
       '15+ projetos entregues',
-      'Satisfação cliente 98%',
-      'Stack modernizada',
-      'Especialista React',
+      'Satisfação cliente',
+      'Desenvolvimento de projetos para area de infraestrutura',
+      'gestao agil de projetos',
     ],
     stats: [
       { icon: TrendingUp, value: '98%', label: 'Satisfação' },
@@ -46,21 +46,20 @@ const experiences = [
   {
     type: 'education',
     icon: GraduationCap,
-    title: 'Bacharelado em Ciência da Computação',
-    company: 'Universidade Federal',
-    period: '2016 - 2020',
+    title: 'Bacharelado em Desenvolvimento de Software',
+    company: 'Faculdade de Tecnologia de São Paulo',
+    period: '2023 - 2026',
     description:
       'Formação sólida em algoritmos, estruturas de dados, engenharia de software, desenvolvimento web e inteligência artificial.',
     achievements: [
       'Honras acadêmicas',
-      'TCC nota máxima',
-      'Bolsa pesquisa',
-      'Monitor de algoritmos',
+      'Trabalho em Equipe',
+      'Projetos Interdisciplinares',
     ],
     stats: [
-      { icon: Award, value: '9.2', label: 'CRA Final' },
-      { icon: TrendingUp, value: '10', label: 'Nota TCC' },
-      { icon: Users, value: '2', label: 'Anos Bolsa' },
+      { icon: Award, value: '', label: 'Fundamentos de Programação' },
+      { icon: TrendingUp, value: '', label: 'Logica de Programação' },
+      { icon: Users, value: '', label: 'Desenvolvimento Web' },
     ],
   },
 ];
@@ -272,10 +271,10 @@ export function Experience() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-5xl mx-auto"
         >
           {[
-            { number: '50+', label: 'Projetos Concluídos', color: 'from-purple-500 to-pink-500', icon: '🚀' },
-            { number: '30+', label: 'Clientes Satisfeitos', color: 'from-blue-500 to-cyan-500', icon: '⭐' },
-            { number: '5+', label: 'Anos de Experiência', color: 'from-green-500 to-emerald-500', icon: '⏳' },
-            { number: '15+', label: 'Tecnologias', color: 'from-yellow-500 to-orange-500', icon: '💻' },
+            { number: '40+', label: 'Projetos Concluídos', color: 'from-purple-500 to-pink-500', icon: '🚀' },
+            { number: '5+', label: 'Equipes de Desenvolvimento', color: 'from-blue-500 to-cyan-500', icon: '⭐' },
+            { number: '2+', label: 'Anos de Experiência', color: 'from-green-500 to-emerald-500', icon: '⏳' },
+            { number: '9+', label: 'Tecnologias', color: 'from-yellow-500 to-orange-500', icon: '💻' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

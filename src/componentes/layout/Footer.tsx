@@ -19,27 +19,13 @@ export function Footer() {
             <img 
               src={logo} 
               alt="Logo" 
-              className="h-16 w-16 object-contain filter drop-shadow-[0_0_15px_rgba(168,85,247,0.6)] mb-2"
+              className="h-16 w-16 object-contain filter drop-shadow-[0_0_15px_rgba(168,85,247,0.6)] mb-2 border-2 border-white rounded-full"
             />
-            <p className="text-gray-400 text-sm">Transformando ideias em código desde 2019</p>
+            <p className="text-gray-400 text-sm">Transformando ideias em código desde 2023</p>
           </div>
 
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span>Feito com</span>
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                }}
-              >
-                <Heart className="h-4 w-4 text-red-500 fill-red-500" />
-              </motion.div>
-              <span>React, Tailwind e Motion</span>
-            </div>
+           
 
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <Button

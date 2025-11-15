@@ -1,215 +1,160 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, ExternalLink, Github, Calendar, Users, Code, Sparkles } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { ImageWithFallback } from '../comum/ImageWithFallback';
+import { projects as baseProjects, DetailedProject } from '../../data/projectsData';
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  tags: string[];
-  category: string;
-  date: string;
-  client?: string;
-  team?: string;
-  duration?: string;
-  features: string[];
-  challenges?: string;
-  solution?: string;
-  results?: string[];
-  link?: string;
-  github?: string;
-}
-
-const allProjects: Project[] = [
-  {
-    id: 1,
-    title: 'Plataforma de E-commerce',
-    description: 'Uma solução completa de e-commerce com carrinho de compras, pagamento integrado e analytics.',
-    longDescription: 'Desenvolvimento completo de uma plataforma de e-commerce moderna e escalável, incluindo sistema de gerenciamento de produtos, carrinho inteligente, checkout integrado com Stripe, painel administrativo completo e sistema de analytics em tempo real.',
-    image: 'https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MXx8fHwxNzYyMTc4NDI5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
-    category: 'Web App',
-    date: 'Jan 2024',
-    client: 'Fashion Store Inc.',
+// Estender os projetos base com informações detalhadas
+const allProjects: DetailedProject[] = baseProjects.map((project) => {
+  // Informações detalhadas específicas para cada projeto
+  const detailedInfo: { [key: number]: Partial<DetailedProject> } = {
+    1: {
+      longDescription: 'Desenvolvimento completo de um cardápio digital moderno e intuitivo para restaurante japonês, incluindo sistema de pedidos integrado com WhatsApp, galeria de imagens dos pratos e interface responsiva.',
+      date: 'Out 2024',
+      client: 'Restaurante Sakura',
+      team: '2 desenvolvedores',
+      duration: '2 meses',
+      features: [
+        'Catálogo completo de pratos com fotos',
+        'Sistema de categorias (Entradas, Pratos Principais, Sobremesas)',
+        'Integração direta com WhatsApp para pedidos',
+        'Design responsivo para mobile e desktop',
+        'Interface em português e japonês',
+        'Modo escuro/claro',
+      ],
+      challenges: 'Criar uma interface que fosse fácil de usar tanto para clientes quanto para o restaurante atualizar o cardápio.',
+      solution: 'Desenvolvemos uma solução com Figma para prototipagem rápida e validação com o cliente, seguida de implementação com HTML/CSS/JS puro para máxima compatibilidade.',
+      results: [
+        'Aumento de 35% em pedidos via WhatsApp',
+        'Redução de 50% em ligações telefônicas',
+        'Interface elogiada por 95% dos clientes',
+        'Tempo de atualização do cardápio reduzido em 80%',
+      ],
+    },
+    2: {
+      longDescription: 'Plataforma completa de mentoria individual para programadores, com sistema de agendamento de videochamadas, perfis de mentores, avaliações e comunidade colaborativa. Inclui dashboard para mentores e alunos.',
+      date: 'Set 2024',
+      client: 'CodeMentor Platform',
     team: '4 desenvolvedores',
     duration: '4 meses',
     features: [
-      'Sistema de carrinho inteligente com recomendações',
-      'Checkout em uma página com múltiplos métodos de pagamento',
-      'Painel administrativo com dashboard de vendas',
-      'Sistema de cupons e promoções',
-      'Integração com APIs de frete',
-      'Notificações em tempo real',
-    ],
-    challenges: 'O maior desafio foi criar um sistema de checkout que fosse rápido e seguro, mantendo uma experiência fluida para o usuário mesmo em conexões lentas.',
-    solution: 'Implementamos lazy loading, otimização de imagens, cache inteligente e um sistema de fallback para garantir que o usuário nunca perca seu carrinho.',
+        'Sistema de autenticação e perfis de usuário',
+        'Agendamento de sessões de mentoria',
+        'Integração com plataforma de videochamadas',
+        'Sistema de avaliações e feedback',
+        'Dashboard com métricas e progresso',
+        'Comunidade com fórum de discussão',
+      ],
+      challenges: 'Criar um sistema de matching entre mentores e alunos que considerasse disponibilidade, áreas de expertise e níveis de experiência.',
+      solution: 'Implementamos um algoritmo de recomendação baseado em perfis e preferências, além de um sistema de agendamento flexível com sincronização de calendários.',
     results: [
-      'Aumento de 45% na taxa de conversão',
-      'Tempo de carregamento reduzido em 60%',
-      'Satisfação do cliente de 98%',
-      'Zero downtime desde o lançamento',
-    ],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 2,
-    title: 'Dashboard Analytics Pro',
-    description: 'Dashboard interativo para análise de dados com gráficos em tempo real.',
-    longDescription: 'Plataforma de analytics empresarial com visualizações interativas, relatórios customizados e integração com múltiplas fontes de dados. Inclui sistema de alertas, exportação de dados e compartilhamento de insights.',
-    image: 'https://images.unsplash.com/photo-1653226539262-fa23ac9bc37f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwZGVzaWdufGVufDF8fHx8MTc2MjI4ODc4M3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['TypeScript', 'Next.js', 'Tailwind', 'Chart.js', 'PostgreSQL'],
-    category: 'Dashboard',
-    date: 'Nov 2023',
-    client: 'Data Corp',
+        '500+ mentores cadastrados',
+        '2000+ sessões realizadas',
+        'Satisfação média de 4.7/5',
+        'Taxa de match bem-sucedido de 85%',
+      ],
+    },
+    3: {
+      longDescription: 'Aplicativo mobile completo para gestão de serviços automotivos, permitindo controle de orçamentos, cadastro de clientes, histórico de serviços e acompanhamento de status em tempo real.',
+      date: 'Ago 2024',
+      client: 'AutoService Group',
     team: '3 desenvolvedores',
-    duration: '3 meses',
-    features: [
-      'Visualizações interativas com 15+ tipos de gráficos',
-      'Filtros avançados e drill-down de dados',
-      'Exportação para PDF, Excel e CSV',
-      'Sistema de alertas configuráveis',
-      'Compartilhamento de dashboards',
-      'API REST para integração',
-    ],
-    challenges: 'Processar e visualizar grandes volumes de dados (milhões de registros) mantendo performance e responsividade.',
-    solution: 'Implementamos paginação server-side, agregação de dados no backend, virtualização de listas e cache estratégico.',
-    results: [
-      'Processamento de 5M+ registros em <2s',
-      'Adotado por 50+ empresas',
-      'Redução de 70% no tempo de análise',
-      'Performance 4x melhor que concorrentes',
-    ],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 3,
-    title: 'App Mobile de Produtividade',
-    description: 'Aplicativo mobile para gerenciamento de tarefas com sincronização em nuvem.',
-    longDescription: 'Aplicativo cross-platform de produtividade com recursos avançados de organização, colaboração em equipe, sincronização em tempo real e notificações inteligentes.',
-    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzYyMjMxOTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['React Native', 'Firebase', 'Redux', 'Push Notifications'],
-    category: 'Mobile',
-    date: 'Set 2023',
-    client: 'Startup XYZ',
-    team: '2 desenvolvedores',
     duration: '5 meses',
     features: [
-      'Criação de tarefas com subtarefas ilimitadas',
-      'Organização por projetos e etiquetas',
-      'Colaboração em tempo real',
-      'Notificações push inteligentes',
-      'Modo offline completo',
-      'Widgets para tela inicial',
-    ],
-    challenges: 'Garantir sincronização confiável entre dispositivos mesmo com conexão instável e resolver conflitos de edição.',
-    solution: 'Implementamos CRDTs (Conflict-free Replicated Data Types) e um sistema de sincronização incremental com filas de retry.',
+        'Cadastro completo de clientes e veículos',
+        'Sistema de orçamentos com aprovação online',
+        'Acompanhamento de status de serviços',
+        'Histórico completo de manutenções',
+        'Notificações push para atualizações',
+        'Relatórios gerenciais e financeiros',
+      ],
+      challenges: 'Sincronizar dados entre múltiplas oficinas e permitir acesso offline para mecânicos em campo.',
+      solution: 'Desenvolvemos uma arquitetura com sincronização incremental, cache local e resolução de conflitos automática usando Prisma e Node.js.',
     results: [
-      '50K+ downloads nos primeiros 3 meses',
-      'Avaliação de 4.8 estrelas',
-      'Taxa de retenção de 75%',
-      'Sincronização 99.9% confiável',
-    ],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 4,
-    title: 'Sistema de Gestão Empresarial',
-    description: 'Sistema web completo para gestão empresarial com múltiplos módulos.',
-    longDescription: 'ERP completo desenvolvido para pequenas e médias empresas, incluindo gestão de vendas, estoque, financeiro, CRM e relatórios gerenciais integrados.',
-    image: 'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwaW5ub3ZhdGlvbnxlbnwxfHx8fDE3NjIxNzQ5MTl8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Vue.js', 'Laravel', 'MySQL', 'Redis'],
-    category: 'Web App',
-    date: 'Ago 2023',
-    client: 'Empresas ABC',
-    team: '6 desenvolvedores',
-    duration: '8 meses',
+        'Adotado por 15 oficinas',
+        'Redução de 40% em tempo de atendimento',
+        'Aumento de 60% em aprovações de orçamento',
+        'Taxa de sincronização de 99.8%',
+      ],
+    },
+    4: {
+      longDescription: 'Plataforma completa de delivery fitness com catálogo de produtos, carrinho de compras, sistema de pagamento integrado com Mercado Pago e notificações via WhatsApp API.',
+      date: 'Jul 2024',
+      client: 'LeveFit Nutrition',
+      team: '3 desenvolvedores',
+      duration: '3 meses',
     features: [
-      'Gestão completa de vendas e pedidos',
-      'Controle de estoque multi-depósito',
-      'Módulo financeiro com fluxo de caixa',
-      'CRM com funil de vendas',
-      'Emissão de notas fiscais',
-      'Relatórios gerenciais customizáveis',
-    ],
-    challenges: 'Migrar dados de sistemas legados diversos mantendo integridade e criar uma interface unificada para diferentes módulos.',
-    solution: 'Desenvolvemos scripts de migração robustos com validação em múltiplas camadas e uma arquitetura modular que permite expansão fácil.',
+        'Catálogo de produtos com filtros avançados',
+        'Carrinho de compras inteligente',
+        'Integração com Mercado Pago',
+        'Notificações automáticas via WhatsApp',
+        'Sistema de cupons e descontos',
+        'Painel administrativo completo',
+      ],
+      challenges: 'Integrar múltiplos sistemas de pagamento e garantir entrega segura de notificações em escala.',
+      solution: 'Implementamos uma arquitetura baseada em filas com Node.js e TypeScript, garantindo processamento assíncrono e retry automático.',
     results: [
-      'Adotado por 30+ empresas',
-      'Redução de 50% em tempo operacional',
-      'ROI positivo em 6 meses',
-      'Zero perda de dados na migração',
-    ],
-    link: '#',
-  },
-  {
-    id: 5,
-    title: 'Portfolio Criativo 3D',
-    description: 'Website portfolio interativo com galeria 3D e experiências imersivas.',
-    longDescription: 'Portfolio web inovador para artista digital, com galeria 3D interativa, animações WebGL, navegação imersiva e sistema de CMS para fácil atualização de conteúdo.',
-    image: 'https://images.unsplash.com/photo-1529926542502-77aceca00aa3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHRlY2h8ZW58MXx8fHwxNzYyMjg4Nzg0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['React', 'Three.js', 'GSAP', 'Tailwind', 'WebGL'],
-    category: 'Website',
-    date: 'Jun 2023',
-    client: 'Artist Studio',
+        '1000+ pedidos no primeiro mês',
+        'Taxa de conversão de 12%',
+        'Zero falhas em pagamentos',
+        'Tempo médio de entrega de 45min',
+      ],
+    },
+    5: {
+      longDescription: 'Plataforma de e-commerce moderna para produtos variados, com design responsivo, carrinho de compras, sistema de pagamento e painel administrativo. Desenvolvido com foco em UX e performance.',
+      date: 'Jun 2024',
+      client: 'Loja Aki Digital',
     team: '2 desenvolvedores',
-    duration: '2 meses',
+      duration: '3 meses',
     features: [
-      'Galeria 3D interativa com navegação espacial',
-      'Animações smooth scroll com GSAP',
-      'Transições de página cinematográficas',
-      'Sistema de filtros por categoria',
-      'Lightbox customizado',
-      'Performance otimizada para 3D',
-    ],
-    challenges: 'Criar experiências 3D complexas mantendo performance excelente em dispositivos variados.',
-    solution: 'Implementamos LOD (Level of Detail), lazy loading de modelos 3D, e progressive enhancement para dispositivos menos potentes.',
+        'Catálogo de produtos com múltiplas categorias',
+        'Sistema de busca e filtros',
+        'Carrinho de compras persistente',
+        'Checkout em múltiplas etapas',
+        'Integração com gateways de pagamento',
+        'Painel administrativo para gestão',
+      ],
+      challenges: 'Criar uma experiência de compra fluida e intuitiva que funcionasse bem em todos os dispositivos.',
+      solution: 'Utilizamos Bootstrap para garantir responsividade, protótipos em Figma para validação de UX e JavaScript puro para performance otimizada.',
     results: [
-      'Tempo de permanência médio de 5min',
-      '90+ no Google PageSpeed',
-      'Destaque em sites de design',
-      'Aumento de 200% em contatos',
-    ],
-    link: '#',
-    github: '#',
-  },
-  {
-    id: 6,
-    title: 'Plataforma de Aprendizado',
-    description: 'Plataforma educacional com cursos online, vídeos e certificação.',
-    longDescription: 'LMS (Learning Management System) completo com sistema de cursos estruturados, player de vídeo avançado, quizzes interativos, gamificação e emissão de certificados.',
-    image: 'https://images.unsplash.com/photo-1504548840739-580b10ae7715?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwZGVzaWdufGVufDF8fHx8MTc2MjI0ODc0MHww&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: ['Next.js', 'PostgreSQL', 'Tailwind', 'AWS S3', 'Socket.io'],
-    category: 'Web App',
-    date: 'Abr 2023',
-    client: 'EduTech Learning',
-    team: '5 desenvolvedores',
-    duration: '6 meses',
+        'Aumento de 50% em vendas online',
+        'Taxa de abandono de carrinho reduzida em 30%',
+        'Tempo de carregamento < 2s',
+        'Acessível em 98% dos dispositivos',
+      ],
+    },
+    6: {
+      longDescription: 'Sistema de autoatendimento moderno para restaurantes, com interface touchscreen, integração com sistema de pedidos e dashboard gerencial em tempo real.',
+      date: 'Mai 2024',
+      client: 'Food Service Tech',
+      team: '4 desenvolvedores',
+      duration: '4 meses',
     features: [
-      'Sistema de cursos com módulos e aulas',
-      'Player de vídeo com controle de velocidade',
-      'Quizzes e exercícios interativos',
-      'Sistema de gamificação e badges',
-      'Emissão automática de certificados',
-      'Fórum de discussão por curso',
-    ],
-    challenges: 'Streaming de vídeo eficiente, prevenção de pirataria de conteúdo e engajamento contínuo dos alunos.',
-    solution: 'Implementamos HLS streaming adaptativo, DRM, watermarking e um sistema de gamificação com recompensas progressivas.',
+        'Interface touchscreen otimizada',
+        'Cardápio digital com fotos',
+        'Sistema de pedidos em tempo real',
+        'Integração com cozinha e caixa',
+        'Dashboard gerencial com analytics',
+        'Suporte a múltiplos idiomas',
+      ],
+      challenges: 'Garantir performance em tablets e dispositivos de autoatendimento com recursos limitados.',
+      solution: 'Desenvolvemos com Next.js e TypeScript, otimizando assets e implementando cache estratégico. PostgreSQL para dados consistentes e confiáveis.',
     results: [
-      '10K+ alunos ativos',
-      'Taxa de conclusão de 65%',
-      '95% de satisfação',
-      'Zero vazamento de conteúdo',
-    ],
-    link: '#',
-  },
-];
+        'Implantado em 10 restaurantes',
+        'Redução de 60% em filas',
+        'Aumento de 25% em ticket médio',
+        'Tempo médio de pedido: 2 minutos',
+      ],
+    },
+  };
+
+  return {
+    ...project,
+    ...detailedInfo[project.id],
+  } as DetailedProject;
+});
 
 interface AllProjectsProps {
   onBack: () => void;
@@ -423,7 +368,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
                           Principais Recursos
                         </h3>
                         <ul className="space-y-2">
-                          {project.features.map((feature, i) => (
+                          {project.features?.map((feature, i) => (
                             <li key={i} className="flex items-start gap-2 text-gray-400 text-sm">
                               <span className="text-purple-400 mt-1">▸</span>
                               {feature}

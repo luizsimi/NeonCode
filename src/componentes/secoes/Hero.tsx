@@ -164,7 +164,7 @@ export function Hero() {
             className="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
             Desenvolvedor Full Stack apaixonado por criar experiências digitais extraordinárias.
-            Especializado em React, Node.js e arquiteturas modernas.
+            Especializado em aplicações web e criação de interfaces.
           </motion.p>
 
           <motion.div

@@ -24,28 +24,27 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'seu-email@exemplo.com',
+      value: 'luizhenriquesimionatovicente@gmail.com',
       color: 'from-purple-500 to-pink-500',
     },
     {
       icon: Phone,
       title: 'Telefone',
-      value: '+55 (11) 99999-9999',
+      value: '+55 (19) 99681-6200',
       color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: MapPin,
       title: 'Localização',
-      value: 'São Paulo, Brasil',
+      value: 'Araras - SP, Brasil',
       color: 'from-green-500 to-emerald-500',
     },
   ];
 
   const socialLinks = [
-    { icon: Linkedin, color: 'from-blue-500 to-blue-600', link: '#' },
-    { icon: Github, color: 'from-gray-700 to-gray-900', link: '#' },
-    { icon: Twitter, color: 'from-cyan-500 to-blue-500', link: '#' },
-    { icon: MessageSquare, color: 'from-green-500 to-emerald-500', link: '#' },
+    { icon: Linkedin, color: 'from-blue-500 to-blue-600', link: 'https://www.linkedin.com/in/luiz-henrique-simionato/' },
+    { icon: Github, color: 'from-gray-700 to-gray-900', link: 'https://github.com/luizsimi' },
+    { icon: MessageSquare, color: 'from-green-500 to-emerald-500', link: '' },
   ];
 
   return (

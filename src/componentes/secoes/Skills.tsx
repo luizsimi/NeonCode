@@ -22,10 +22,10 @@ const skillCategories = [
     title: 'Frontend',
     color: 'from-purple-500 to-pink-500',
     skills: [
-      { name: 'React', level: 95 },
-      { name: 'Next.js', level: 90 },
-      { name: 'TypeScript', level: 88 },
-      { name: 'Vue.js', level: 85 },
+      { name: 'React', level: 75 },
+      { name: 'JavaScript', level: 75 },
+      { name: 'TypeScript', level: 55 },
+      { name: 'Vue.js', level: 50 },
     ],
   },
   {
@@ -33,10 +33,10 @@ const skillCategories = [
     title: 'Backend',
     color: 'from-blue-500 to-cyan-500',
     skills: [
-      { name: 'Node.js', level: 92 },
-      { name: 'PHP', level: 85 },
-      { name: 'PostgreSQL', level: 88 },
-      { name: 'API REST', level: 90 },
+      { name: 'Node.js', level: 60 },
+      { name: 'PHP', level: 60 },
+      { name: 'PostgreSQL', level: 55 },
+      { name: 'API REST', level: 75 },
     ],
   },
   {
@@ -57,8 +57,6 @@ const skillCategories = [
     skills: [
       { name: 'Git', level: 95 },
       { name: 'GitHub', level: 90 },
-      { name: 'CI/CD', level: 82 },
-      { name: 'Linux', level: 75 },
     ],
   },
   {
@@ -66,10 +64,8 @@ const skillCategories = [
     title: 'Mobile',
     color: 'from-violet-500 to-purple-500',
     skills: [
-      { name: 'React Native', level: 88 },
-      { name: 'Flutter', level: 75 },
-      { name: 'iOS', level: 70 },
-      { name: 'Android', level: 70 },
+      { name: 'Flutter', level: 45 },
+      { name: 'Android', level: 45 },
     ],
   },
   {
